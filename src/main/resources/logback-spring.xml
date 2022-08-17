@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="Logback" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <includeMdcKeyName>x-request-id</includeMdcKeyName>
+        </encoder>
+    </appender>
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] [%X{x-request-id}] %-5level %logger{36} - %msg%n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <springProfile name="dev">
+        <root level="WARN">
+            <appender-ref ref="Console"/>
+        </root>
+        <logger name="no.njm" level="DEBUG"/>
+    </springProfile>
+
+    <springProfile name="!dev">
+        <root level="WARN">
+            <appender-ref ref="Logback"/>
+        </root>
+        <logger name="no.njm" level="INFO"/>
+    </springProfile>
+
+</configuration>

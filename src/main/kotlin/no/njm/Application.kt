@@ -12,8 +12,6 @@ fun main(args: Array<String>) {
     runApplication<Application>(*args)
 }
 
-@Suppress("UnusedReceiverParameter")
 inline fun <reified T> T.getLogger(): Logger {
     return LoggerFactory.getLogger(T::class.java)
 }
-

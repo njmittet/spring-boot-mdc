@@ -1,17 +1,16 @@
-# kotlin-spring-boot-rest
+# spring-boot-mdc
 
-A minimal [Kotlin](https://kotlinlang.org) and [Spring Boot](https://spring.io/projects/spring-boot) REST application. 
-Build with [Gradle](https://gradle.org/). Uses [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) 
-for the build.gradle.kts file.
+A minimal [Kotlin](https://kotlinlang.org) and [Spring Boot](https://spring.io/projects/spring-boot) REST application demonstrating the use 
+of [Mapped Diagnostic Context](https://logback.qos.ch/manual/mdc.html) (MDC) for logging.
 
-Uses log4j2 for logging instead of the logger provided by Spring Boot.
+Run the application with:
 
-Run the application:
-
-```
+```shell
 ./gradlew bootRun
 ```
 
-## Resources
+Call the application with: 
 
-* [Creating a RESTful Web Service with Kotlin and Spring Boot](https://kotlinlang.org/docs/tutorials/spring-boot-restful.html)
+```shell
+curl -XGET localhost:8080/hello
+```
